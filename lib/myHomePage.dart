@@ -61,7 +61,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
                   width: 10,
                 ),
                 Text(
-                  'Gemini Gpt',  
+                  'Gemini Gpt',
                   style: Theme.of(context).textTheme.titleLarge,
                 )
               ],
