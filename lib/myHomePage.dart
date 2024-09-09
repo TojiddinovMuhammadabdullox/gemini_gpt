@@ -37,7 +37,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
 
       _controller.clear();
     } catch (e) {
-      print("Error : $e");
+      // print("Error : $e");
     }
   }
 
@@ -46,10 +46,10 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
     final currentTheme = ref.watch(themeProvider);
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 1,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,7 +57,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
             Row(
               children: [
                 Image.asset('assets/gpt-robot.png'),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
@@ -96,17 +96,17 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
                           ? Alignment.centerRight
                           : Alignment.centerLeft,
                       child: Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               color: message.isUser
                                   ? Theme.of(context).colorScheme.primary
                                   : Theme.of(context).colorScheme.secondary,
                               borderRadius: message.isUser
-                                  ? BorderRadius.only(
+                                  ? const BorderRadius.only(
                                       topLeft: Radius.circular(20),
                                       bottomRight: Radius.circular(20),
                                       bottomLeft: Radius.circular(20))
-                                  : BorderRadius.only(
+                                  : const BorderRadius.only(
                                       topRight: Radius.circular(20),
                                       topLeft: Radius.circular(20),
                                       bottomRight: Radius.circular(20))),
@@ -132,7 +132,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3))
+                        offset: const Offset(0, 3))
                   ]),
               child: Row(
                 children: [
@@ -147,14 +147,15 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
                               .titleSmall!
                               .copyWith(color: Colors.grey),
                           border: InputBorder.none,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 20)),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   _isLoading
-                      ? Padding(
+                      ? const Padding(
                           padding: EdgeInsets.all(8),
                           child: SizedBox(
                             width: 20,
@@ -165,8 +166,8 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
                       : Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: GestureDetector(
-                            child: Image.asset('assets/send.png'),
                             onTap: callGeminiModel,
+                            child: Image.asset('assets/send.png'),
                           ),
                         )
                 ],
